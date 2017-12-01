@@ -16,8 +16,6 @@ def inverse_captcha_halfway(num):
         
         else:
             pass
-       
-        i += 1
     
     return inv_captcha
 
