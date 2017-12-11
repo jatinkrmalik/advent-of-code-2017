@@ -13,11 +13,21 @@ def mem_reloc_part1(memBlox):
         redist = pivot//ln
         keep_dist = pivot%ln
 
+        print("Pivot:", pivot, "at index:", pivot_index, "in arr of length of rest elements", ln, "Redist: ", redist, "and keep ", keep_dist)
         for i in range(ln+1):
-            if i == pivot_index:
-                memBlox[i] = keep_dist
+            mod_index = i + pivot_index
+            
+            if mod_index == pivot_index:
+                print("Updating at index", mod_index)
+                memBlox[mod_index] = keep_dist
+
+            elif mod_index > ln:
+                print("Updating at index", mod_index%ln)
+                memBlox[mod_index%ln] += redist
+
             else:
-                memBlox[i] += redist
+                print("Updating at index", mod_index)
+                memBlox[mod_index] += redist
         
         print("New array", memBlox)
         print("********")        
